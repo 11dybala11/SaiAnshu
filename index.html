@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Happy Birthday Sophia Rout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+      <source src="./images/HAPPY BIRTHDAY INSTRUMENTAL.mp3" type="audio/mp3" />
+      Your browser does not support the audio tag.
+    </audio>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="hero-text">
+        <p class="tagline">Happy Birthday</p>
+        <h1 class="headline">Sophia Rout</h1>
+        <h2 class="subheadline">22.04.2025</h2>
+        <p class="description">
+          Wishing you all the love, laughter, and light your heart can hold on this special day!
+        </p>
+        <a href="birthday.html">
+          <button class="cta-btn">CELEBRATE NOW</button>
+        </a>
+      </div>
+      <div class="hero-image">
+        <div class="photo-frame">
+          <img
+            src="/Head-Office/Head-off-pics/IMG-20250307-WA0017.jpg"
+            alt="Sophia Rout"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="video-container">
+      <video id="birthday-video" autoplay loop muted playsinline>
+        <source src="./images/videoplayback.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Banner Section -->
+    <div class="banner">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Sophia Rout</h1>
+        <a href="pap.html" class="btn">Read More</a>
+      </div>
+    </div>
+
+    <!-- Footer Note -->
+    <footer class="footer-note">
+      <p class="footer-main">Celebrating Sophia Rout • 22.04.2025</p>
+      <p class="footer-sub">Designed and crafted with love, by yours truly.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById("bg-music");
+        let volume = 0;
+        let fadeInInterval, fadeOutInterval;
+
+        function fadeInMusic() {
+          clearInterval(fadeOutInterval); 
+          audio.volume = volume;
+          audio.play().then(() => {
+            fadeInInterval = setInterval(() => {
+              if (volume < 1) {
+                volume += 0.05;
+                audio.volume = volume;
+              } else {
+                clearInterval(fadeInInterval);
+              }
+            }, 300);
+          }).catch(error => console.error("Autoplay blocked:", error));
+        }
+
+        function fadeOutMusic() {
+          clearInterval(fadeInInterval);
+          fadeOutInterval = setInterval(() => {
+            if (volume > 0) {
+              volume -= 0.05;
+              audio.volume = volume;
+            } else {
+              clearInterval(fadeOutInterval);
+              audio.pause();
+            }
+          }, 300);
+        }
+
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            fadeOutMusic();
+          } else {
+            fadeInMusic();
+          }
+        });
+
+        fadeInMusic();
+      });
+    </script>
+  </body>
+</html>
