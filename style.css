@@ -1,4 +1,4 @@
-/* Global Styles */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #f2f2f2, #ffffff);
+  background: linear-gradient(135deg, #f8e9f1, #ffffff);
   color: #333;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #d1c8fd;
+  background-color: #f0c1d5;
   padding: 100px;
   flex-wrap: wrap;
   width: 100%;
@@ -49,7 +49,7 @@ body {
 .headline {
   font-family: 'Dancing Script', cursive;
   font-size: 4rem;
-  color: #FF8C00;
+  color: #ff4e69;
   margin-bottom: 10px;
 }
 
@@ -107,56 +107,46 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Video Section */
-.video-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 50px 0;
-}
-
-video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Year Sections */
-.banner-sections {
+/* Anniversary Milestones Section */
+.anniversary-milestones {
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
+  width: 100%;
+  background-color: #f8e9f1;
+  padding: 50px;
 }
 
 .year-section {
-  margin-bottom: 50px;
+  margin: 30px 0;
 }
 
 .year-section h3 {
-  font-size: 2.5rem;
-  color: #6b1d76;
-  text-align: center;
+  font-size: 2rem;
+  color: #ff4e69;
   margin-bottom: 20px;
 }
 
 .image-gallery {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .image-gallery img {
-  width: 18%;
+  width: 200px;
+  height: auto;
   margin: 10px;
   border-radius: 8px;
+  border: 2px solid #ddd;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Styling */
+/* Footer */
 .footer-note {
   text-align: center;
   padding: 30px;
   width: 100%;
-  background-color: #6B1D76;
+  background-color: #ff4e69;
   color: white;
   font-size: 1.2rem;
   margin-top: 50px;
@@ -170,67 +160,4 @@ video {
 
 .footer-sub {
   font-size: 1rem;
-}
-
-/* Responsive Styling */
-@media (max-width: 1024px) {
-  .hero {
-    padding: 60px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-text {
-    max-width: 100%;
-    order: 2;
-  }
-
-  .hero-image {
-    max-width: 100%;
-    order: 1;
-    margin-bottom: 30px;
-  }
-
-  .footer-note {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding: 30px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-text,
-  .hero-image {
-    max-width: 100%;
-    order: unset;
-  }
-
-  .tagline {
-    font-size: 1.2rem !important;
-  }
-
-  .headline {
-    font-size: 2.2rem !important;
-  }
-
-  .subheadline {
-    font-size: 1rem !important;
-  }
-
-  .description {
-    font-size: 0.9rem;
-  }
-
-  .cta-btn {
-    font-size: 0.9rem;
-    padding: 10px 20px;
-  }
-
-  .footer-note {
-    padding: 20px 10px;
-  }
 }
