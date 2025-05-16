@@ -114,27 +114,22 @@ video {
   margin-bottom: 1rem;
 }
 
-/* Updated grid for image gallery */
 .image-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
   padding: 0 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* Remove fixed width from image-box so grid controls size */
 .image-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 160px;
 }
 
-/* Make images fill box, keep 1:1 aspect ratio */
 .image-box img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -143,15 +138,17 @@ video {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Caption styling */
 .image-box p {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   color: #444;
   text-align: center;
-  max-width: 140px;
+  max-width: 120px;
   line-height: 1.2;
 }
+
+/* Make 5 columns always, no responsive change */
+
 
 /* Responsive tweaks for smaller screens */
 @media (max-width: 480px) {
