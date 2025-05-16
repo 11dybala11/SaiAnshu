@@ -25,12 +25,11 @@
         <h1 class="headline">SaiAnshu</h1>
         <h2 class="subheadline">19.05.2025</h2>
         <p class="description">
-          "To make those rainbows in my mind <br />
-          When I think of you sometime<br />
-          And I wanna spend some time with you<br />
-          Just the two of us"<br /><br /><br />
-
-          Through this column, I want to express how my eyes sparkle whenever you are around me, how my stomach gets butterflies when you stare at me with looks of appreciation and how there, forms rainbows when you hug me.
+          "To make those rainbows in my mind <br>
+          When I think of you sometime<br>
+          And I wanna spend some time with you<br>
+          Just the two of us"<br><br><br>
+          Through this column, I want to express how my eyes sparkle whenever you are around me, how my stomach gets butterflies when you stare at me with looks of appreciation and how there, forms rainbows when you hug me. 
           Like the time flies when we are together, years fled. 3 years and counting, huh!
         </p>
         <a href="ann.html">
@@ -63,7 +62,7 @@
           <img src="/SaiAnshu/21-4.jpg" />
           <img src="/SaiAnshu/21-5.jpg" />
         </div>
-        <p class="one-liner">Our journey started with shy smiles and hopeful hearts.</p>
+        <p class="year-caption">The year our story began—awkward smiles, loud laughs, and butterflies.</p>
       </div>
       <div class="year-section">
         <h3>2022</h3>
@@ -74,7 +73,7 @@
           <img src="/SaiAnshu/22-4.jpg" />
           <img src="/SaiAnshu/22-5.jpg" />
         </div>
-        <p class="one-liner">Growing closer with every moment shared.</p>
+        <p class="year-caption">The year of little adventures and even bigger memories.</p>
       </div>
       <div class="year-section">
         <h3>2023</h3>
@@ -85,7 +84,7 @@
           <img src="/SaiAnshu/23-4.jpg" />
           <img src="/SaiAnshu/23-5.jpg" />
         </div>
-        <p class="one-liner">Creating memories that feel like magic.</p>
+        <p class="year-caption">Growing closer with every silly fight and every warm hug.</p>
       </div>
       <div class="year-section">
         <h3>2024</h3>
@@ -96,7 +95,7 @@
           <img src="/SaiAnshu/24-4.jpg" />
           <img src="/SaiAnshu/24-5.jpg" />
         </div>
-        <p class="one-liner">Hand in hand, hearts intertwined.</p>
+        <p class="year-caption">The year we were practically inseparable—partners in chaos & comfort.</p>
       </div>
       <div class="year-section">
         <h3>2025</h3>
@@ -107,7 +106,7 @@
           <img src="/SaiAnshu/25-4.jpg" />
           <img src="/SaiAnshu/25-5.jpg" />
         </div>
-        <p class="one-liner">And here's to many more beautiful years ahead!</p>
+        <p class="year-caption">This year—just us, just love, and a forever to look forward to.</p>
       </div>
     </div>
 
@@ -124,21 +123,18 @@
         let fadeInInterval, fadeOutInterval;
 
         function fadeInMusic() {
-          clearInterval(fadeOutInterval);
+          clearInterval(fadeOutInterval); 
           audio.volume = volume;
-          audio
-            .play()
-            .then(() => {
-              fadeInInterval = setInterval(() => {
-                if (volume < 1) {
-                  volume += 0.05;
-                  audio.volume = volume;
-                } else {
-                  clearInterval(fadeInInterval);
-                }
-              }, 300);
-            })
-            .catch((error) => console.error("Autoplay blocked:", error));
+          audio.play().then(() => {
+            fadeInInterval = setInterval(() => {
+              if (volume < 1) {
+                volume += 0.05;
+                audio.volume = volume;
+              } else {
+                clearInterval(fadeInInterval);
+              }
+            }, 300);
+          }).catch(error => console.error("Autoplay blocked:", error));
         }
 
         function fadeOutMusic() {
