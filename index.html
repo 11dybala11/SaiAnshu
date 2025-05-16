@@ -121,28 +121,31 @@
     </footer>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const audio = document.getElementById("bg-music");
+  const audio = document.getElementById("bg-music");
 
-        const enableAudio = () => {
-          audio.play().catch(err => {
-            console.log("Playback prevented:", err);
-          });
-
-          // Remove listeners after first interaction
-          document.removeEventListener("click", enableAudio);
-          document.removeEventListener("touchstart", enableAudio);
-          document.removeEventListener("keydown", enableAudio);
-        };
-
-        // Try to play immediately
-        audio.play().catch(() => {
-          // If autoplay is blocked, wait for interaction
-          document.addEventListener("click", enableAudio);
-          document.addEventListener("touchstart", enableAudio);
-          document.addEventListener("keydown", enableAudio);
-        });
+  const tryPlay = () => {
+    if (audio.paused) {
+      audio.play().catch(err => {
+        console.log("Still blocked:", err);
       });
-    </script>
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Wait for any user interaction
+    const enableAudio = () => {
+      tryPlay();
+      document.removeEventListener("click", enableAudio);
+      document.removeEventListener("touchstart", enableAudio);
+      document.removeEventListener("keydown", enableAudio);
+    };
+
+    // Attach listeners
+    document.addEventListener("click", enableAudio);
+    document.addEventListener("touchstart", enableAudio);
+    document.addEventListener("keydown", enableAudio);
+  });
+</script>
+
   </body>
 </html>
