@@ -13,8 +13,8 @@
   </head>
   <body>
     <!-- Background Music -->
-    <audio id="bg-music" loop>
-      <source src="/SaiAnshu/songL.mp3" type="audio/mp3" />
+    <audio id="bg-music" autoplay loop>
+      <source src="/SaiAnshu/song.mp3" type="audio/mp3" />
       Your browser does not support the audio tag.
     </audio>
 
@@ -116,53 +116,29 @@
     <!-- Footer Note -->
     <footer class="footer-note">
       <p class="footer-main">Wishing you a lifetime of love and laughter 💖<br>
-Warm regards,<br>
+      Warm regards,<br>
       Arpan</p>
     </footer>
 
+    <!-- Script to autoplay audio -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const audio = document.getElementById("bg-music");
-        let volume = 0;
-        let fadeInInterval, fadeOutInterval;
 
-        function fadeInMusic() {
-          clearInterval(fadeOutInterval);
-          audio.volume = volume;
-          audio.play().then(() => {
-            fadeInInterval = setInterval(() => {
-              if (volume < 1) {
-                volume += 0.05;
-                audio.volume = volume;
-              } else {
-                clearInterval(fadeInInterval);
-              }
-            }, 300);
-          }).catch(error => console.error("Autoplay blocked:", error));
-        }
-
-        function fadeOutMusic() {
-          clearInterval(fadeInInterval);
-          fadeOutInterval = setInterval(() => {
-            if (volume > 0) {
-              volume -= 0.05;
-              audio.volume = volume;
-            } else {
-              clearInterval(fadeOutInterval);
-              audio.pause();
-            }
-          }, 300);
-        }
-
-        document.addEventListener("visibilitychange", () => {
-          if (document.hidden) {
-            fadeOutMusic();
-          } else {
-            fadeInMusic();
+        const tryPlay = () => {
+          const playPromise = audio.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(error => {
+              console.warn("Autoplay might be blocked:", error);
+            });
           }
-        });
+        };
 
-        fadeInMusic();
+        // Attempt to play right away
+        tryPlay();
+
+        // If blocked, wait for first interaction
+        document.addEventListener("click", tryPlay, { once: true });
       });
     </script>
   </body>
