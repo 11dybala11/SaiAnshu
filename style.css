@@ -1,81 +1,100 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: #fff0f5;
-  color: #4a2c2a;
+  background-color: #fff5f7;
+  color: #333;
 }
 
+/* Hero Section */
 .hero {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  padding: 4rem 1rem;
-  background: linear-gradient(to bottom right, #ffe4e1, #fff5f7);
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom right, #ffe3ec, #fad0c4);
+  text-align: center;
 }
 
 .hero-text {
-  text-align: center;
+  flex: 1 1 300px;
   max-width: 600px;
+  margin: 1rem;
 }
 
-.tagline {
-  font-family: 'Dancing Script', cursive;
-  font-size: 8rem;
-  color: #e91e63;
+.hero-image {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
 }
 
-.headline {
-  font-size: 3.5rem;
-  margin: 0.2rem 0;
-}
-
-.subheadline {
-  font-size: 2rem;
-  margin: 0.5rem 0;
-  color: #b71c1c;
-}
-
-.description {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-top: 1rem;
-}
-
-.cta-btn {
-  margin-top: 2rem;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  background-color: #f06292;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-.hero-image .photo-frame {
-  margin-top: 2rem;
-  width: 300px;
-  aspect-ratio: 1 / 1;
+.photo-frame {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
   overflow: hidden;
-  border-radius: 15px;
-  border: 4px solid #f8bbd0;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.hero-image img {
+.photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.video-container video {
-  width: 100%;
-  height: auto;
-  display: block;
+.tagline {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin: 0;
 }
 
+.headline {
+  font-size: 3rem;
+  margin: 0.5rem 0;
+  color: #cc3366;
+}
+
+.subheadline {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.cta-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #ff6699;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background-color: #e65588;
+}
+
+/* Video Section */
+.video-container {
+  margin: 0;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+/* Yearly Section */
 .anniversary-milestones {
-  padding: 3rem 1rem;
-  background-color: #fff5f5;
+  padding: 2rem 1rem;
+  background-color: #fff0f5;
 }
 
 .year-section {
@@ -85,6 +104,7 @@ body {
 
 .year-section h3 {
   font-size: 2rem;
+  color: #c71585;
   margin-bottom: 1rem;
 }
 
@@ -92,65 +112,41 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 1rem;
 }
 
-.image-gallery img {
-  width: 150px;
-  height: 150px;
+.image-box {
+  width: 160px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-box img {
+  width: 160px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.year-caption {
-  font-style: italic;
-  color: #a52a2a;
-  margin-top: 1rem;
-  font-size: 1rem;
-}
-
-.footer-note {
+.image-box p {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #444;
   text-align: center;
-  padding: 0.8rem 1rem;
+}
+
+/* Footer */
+.footer-note {
+  background-color: transparent;
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+
+.footer-main {
   font-size: 0.7rem;
-  background-color: #fff0f0;
-  color: #9e6c5d;
-  opacity: 0.6;
-}
-
-.footer-note p {
-  margin: 2px 0;
-  font-weight: 400;
-  line-height: 1.3;
+  color: #888;
   font-style: italic;
-}
-
-
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
-  .hero {
-    padding: 3rem 1rem;
-  }
-
-  .headline {
-    font-size: 2.5rem;
-  }
-
-  .subheadline {
-    font-size: 1.5rem;
-  }
-
-  .image-gallery img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .cta-btn {
-    font-size: 0.9rem;
-  }
-
-  .photo-frame {
-    width: 250px;
-  }
 }
