@@ -25,13 +25,13 @@
         <h1 class="headline">SaiAnshu</h1>
         <h2 class="subheadline">19.05.2025</h2>
         <p class="description">
-          "To make those rainbows in my mind <br>
-When I think of you sometime<br>
-And I wanna spend some time with you<br>
-Just the two of us"<br><br><br>
+          "To make those rainbows in my mind <br />
+          When I think of you sometime<br />
+          And I wanna spend some time with you<br />
+          Just the two of us"<br /><br /><br />
 
-Through this column, I want to express how my eyes sparkle whenever you are around me, how my stomach gets butterflies when you stare at me with looks of appreciation and how there, forms rainbows when you hug me. 
-Like the time flies when we are together, years fled. 3 years and counting, huh!
+          Through this column, I want to express how my eyes sparkle whenever you are around me, how my stomach gets butterflies when you stare at me with looks of appreciation and how there, forms rainbows when you hug me.
+          Like the time flies when we are together, years fled. 3 years and counting, huh!
         </p>
         <a href="ann.html">
           <button class="cta-btn">CELEBRATE NOW</button>
@@ -39,10 +39,7 @@ Like the time flies when we are together, years fled. 3 years and counting, huh!
       </div>
       <div class="hero-image">
         <div class="photo-frame">
-          <img
-            src="/SaiAnshu/22-1.jpg"
-            alt="SaiAnshu"
-          />
+          <img src="/SaiAnshu/22-1.jpg" alt="SaiAnshu" />
         </div>
       </div>
     </div>
@@ -66,6 +63,7 @@ Like the time flies when we are together, years fled. 3 years and counting, huh!
           <img src="/SaiAnshu/21-4.jpg" />
           <img src="/SaiAnshu/21-5.jpg" />
         </div>
+        <p class="one-liner">Our journey started with shy smiles and hopeful hearts.</p>
       </div>
       <div class="year-section">
         <h3>2022</h3>
@@ -76,6 +74,7 @@ Like the time flies when we are together, years fled. 3 years and counting, huh!
           <img src="/SaiAnshu/22-4.jpg" />
           <img src="/SaiAnshu/22-5.jpg" />
         </div>
+        <p class="one-liner">Growing closer with every moment shared.</p>
       </div>
       <div class="year-section">
         <h3>2023</h3>
@@ -86,6 +85,7 @@ Like the time flies when we are together, years fled. 3 years and counting, huh!
           <img src="/SaiAnshu/23-4.jpg" />
           <img src="/SaiAnshu/23-5.jpg" />
         </div>
+        <p class="one-liner">Creating memories that feel like magic.</p>
       </div>
       <div class="year-section">
         <h3>2024</h3>
@@ -96,6 +96,7 @@ Like the time flies when we are together, years fled. 3 years and counting, huh!
           <img src="/SaiAnshu/24-4.jpg" />
           <img src="/SaiAnshu/24-5.jpg" />
         </div>
+        <p class="one-liner">Hand in hand, hearts intertwined.</p>
       </div>
       <div class="year-section">
         <h3>2025</h3>
@@ -106,6 +107,7 @@ Like the time flies when we are together, years fled. 3 years and counting, huh!
           <img src="/SaiAnshu/25-4.jpg" />
           <img src="/SaiAnshu/25-5.jpg" />
         </div>
+        <p class="one-liner">And here's to many more beautiful years ahead!</p>
       </div>
     </div>
 
@@ -122,18 +124,21 @@ Like the time flies when we are together, years fled. 3 years and counting, huh!
         let fadeInInterval, fadeOutInterval;
 
         function fadeInMusic() {
-          clearInterval(fadeOutInterval); 
+          clearInterval(fadeOutInterval);
           audio.volume = volume;
-          audio.play().then(() => {
-            fadeInInterval = setInterval(() => {
-              if (volume < 1) {
-                volume += 0.05;
-                audio.volume = volume;
-              } else {
-                clearInterval(fadeInInterval);
-              }
-            }, 300);
-          }).catch(error => console.error("Autoplay blocked:", error));
+          audio
+            .play()
+            .then(() => {
+              fadeInInterval = setInterval(() => {
+                if (volume < 1) {
+                  volume += 0.05;
+                  audio.volume = volume;
+                } else {
+                  clearInterval(fadeInInterval);
+                }
+              }, 300);
+            })
+            .catch((error) => console.error("Autoplay blocked:", error));
         }
 
         function fadeOutMusic() {
