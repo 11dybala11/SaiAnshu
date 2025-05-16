@@ -13,8 +13,8 @@
   </head>
   <body>
     <!-- Background Music -->
-    <audio id="bg-music" autoplay loop>
-      <source src="/SaiAnshu/song.mp3" type="audio/mp3" />
+    <audio id="bg-music" loop>
+      <source src="/SaiAnshu/songL.mp3" type="audio/mp3" />
       Your browser does not support the audio tag.
     </audio>
 
@@ -120,25 +120,28 @@
       Arpan</p>
     </footer>
 
-    <!-- Script to autoplay audio -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const audio = document.getElementById("bg-music");
 
-        const tryPlay = () => {
-          const playPromise = audio.play();
-          if (playPromise !== undefined) {
-            playPromise.catch(error => {
-              console.warn("Autoplay might be blocked:", error);
-            });
-          }
+        const enableAudio = () => {
+          audio.play().catch(err => {
+            console.log("Playback prevented:", err);
+          });
+
+          // Remove listeners after first interaction
+          document.removeEventListener("click", enableAudio);
+          document.removeEventListener("touchstart", enableAudio);
+          document.removeEventListener("keydown", enableAudio);
         };
 
-        // Attempt to play right away
-        tryPlay();
-
-        // If blocked, wait for first interaction
-        document.addEventListener("click", tryPlay, { once: true });
+        // Try to play immediately
+        audio.play().catch(() => {
+          // If autoplay is blocked, wait for interaction
+          document.addEventListener("click", enableAudio);
+          document.addEventListener("touchstart", enableAudio);
+          document.addEventListener("keydown", enableAudio);
+        });
       });
     </script>
   </body>
