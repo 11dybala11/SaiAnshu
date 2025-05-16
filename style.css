@@ -97,7 +97,7 @@ video {
   height: auto;
 }
 
-/* Yearly Section */
+/* Anniversary Milestones Section */
 .anniversary-milestones {
   padding: 2rem 1rem;
   background-color: #fff0f5;
@@ -114,6 +114,7 @@ video {
   margin-bottom: 1rem;
 }
 
+/* Updated grid for image gallery */
 .image-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -124,29 +125,53 @@ video {
   margin: 0 auto;
 }
 
-
+/* Remove fixed width from image-box so grid controls size */
 .image-box {
-  width: 160px;
-  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 160px;
 }
 
+/* Make images fill box, keep 1:1 aspect ratio */
 .image-box img {
-  width: 160px;
-  height: 160px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* Caption styling */
 .image-box p {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   color: #444;
   text-align: center;
   max-width: 140px;
+  line-height: 1.2;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 480px) {
+  .image-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    padding: 0 1rem;
+  }
+
+  .image-box {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 360px) {
+  .image-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  .image-box {
+    max-width: 100px;
+  }
 }
 
 /* Footer */
